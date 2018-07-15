@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
+  <!-- <div class="container" @click="clickHandle('test click', $event)">
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
@@ -7,25 +7,24 @@
         <card :text="userInfo.nickName"></card>
       </div>
     </div>
-    <div class="head-photo">
-      <img src="../../../static/img/cat2.jpg" alt="">
-    </div>
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <!-- <form class="form-container">
+    <form class="form-container">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a> -->
+    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+  </div> -->
+  <div class="head-page">
+
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import card from '@/components/card'
+import QQMapWX from '../../common/lib/qqmap-wx-jssdk.js'
+
+const qqmapsdk = new QQMapWX({
+    key: 'NQABZ-QVUK4-OS7U7-XG3MU-YTVS2-MQFPN'
+});
 
 export default {
   data () {
@@ -34,7 +33,6 @@ export default {
       userInfo: {}
     }
   },
-
   components: {
     card
   },
