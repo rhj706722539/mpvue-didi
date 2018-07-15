@@ -16,11 +16,11 @@
       </div>
     </div>
 
-    <form class="form-container">
+    <!-- <form class="form-container">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a> -->
   </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -108,11 +108,10 @@ export default {
   text-align:center;
   height:80px;
   width:80px;
-
-}
-.head-photo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 48px;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 48px;
+  }
 }
 </style>
