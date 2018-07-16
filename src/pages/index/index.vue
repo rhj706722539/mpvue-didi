@@ -1,20 +1,21 @@
 <template>
-  <!-- <div class="container" @click="clickHandle('test click', $event)">
-
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
+  <div class="home-page">
+    <div class="nav-tab">
+      <div class="nav-person">
+        <!-- <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-xiao"></use>
+        </svg> -->
       </div>
+      <scroll-view class="nav-scroll"
+      scroll-x  
+      style="width: 100%"
+      scroll-with-animation="true" 
+      :scroll-left="scrollLeft">
+        <div class="nav-item" v-for="(item,index) in navData" :key="index">
+          {{item}}
+        </div>
+      </scroll-view>
     </div>
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
-  </div> -->
-  <div class="head-page">
-
   </div>
 </template>
 
@@ -30,7 +31,10 @@ export default {
   data () {
     return {
       motto: 'Hello weChat!',
-      userInfo: {}
+      userInfo: {},
+      scrollLeft:0,
+      // toView: '出租车',
+      navData:['出租车','快车','专车','豪华车','顺风车','代驾']
     }
   },
   components: {
@@ -56,7 +60,7 @@ export default {
     },
     clickHandle (msg, ev) {
       console.log('clickHandle:', msg, ev)
-    }
+    },
   },
 
   created () {
@@ -67,49 +71,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 50px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-
-.counter {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
-.head-photo {
-  text-align:center;
-  height:80px;
-  width:80px;
-  img {
+.nav-tab {
+  width: 100%;
+  background: #F8F8F8;
+  .nav-person {
     width: 100%;
-    height: 100%;
-    border-radius: 48px;
+  }
+  .nav-scroll {
+    flex: 1;
+    margin: 0 5px;
+    height: 54px;
+    line-height: 54px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0;
+    .nav-item {
+      width: 50px;
+      text-align: center;
+      margin: 0 10px;
+      display: inline-block;
+      font-size: 16px;
+    }
   }
 }
 </style>
